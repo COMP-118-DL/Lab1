@@ -6,6 +6,11 @@
 
 using namespace std;
 
+void drawHorizontalLine(int length, char ch) ;
+void drawVerticalLine(int height, char ch);
+void drawSquare(int size, char ch);
+void drawRectangle(int height, int length, char ch);
+
 int main() {
 
     int userChoice;
