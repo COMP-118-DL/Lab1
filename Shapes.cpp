@@ -3,6 +3,8 @@
 //
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -10,8 +12,11 @@ void drawHorizontalLine(int length, char ch) ;
 void drawVerticalLine(int height, char ch);
 void drawSquare(int size, char ch);
 void drawRectangle(int height, int length, char ch);
+void drawShapes();
 
 int main() {
+
+    srand(time(0));
 
     int userChoice;
     int size;
@@ -22,7 +27,8 @@ int main() {
     cout << "2) Draw a vertical line" << endl;
     cout << "3) Draw a square" << endl;
     cout << "4) Draw a rectangle" << endl;
-    cout << "5) Quit" << endl;
+    cout << "5) Fun" << endl;
+    cout << "6) Exit" << endl;
 
     cout << "Enter your option: ";
     cin >> userChoice;
@@ -48,6 +54,14 @@ int main() {
             cin >> height >> length >> ch;
             drawRectangle(height, length, ch);
             break;
+        case 5:
+            drawShapes();
+            break;
+        case 6:
+            cout << "Goodbye!";
+            break;
+        default:
+            cout << "Invalid option!";
 
     }
 
@@ -113,4 +127,31 @@ void drawRectangle(int height, int length, char ch) {
         cout << ch;
     }
     cout << endl;
+}
+
+void drawShapes() {
+    const int MAX_SHAPES = 10;
+
+    for (int i = 0; i < MAX_SHAPES; i++) {
+        int shape = rand() % 4 + 1;
+        int size = rand() % 10 + 1;
+        int height = rand() % 10 + 1;
+        int length = rand() % 10 + 1;
+        char ch = rand() % 126 + 33;
+
+        switch (shape) {
+            case 1:
+                drawHorizontalLine(size, ch);
+                break;
+            case 2:
+                drawVerticalLine(size, ch);
+                break;
+            case 3:
+                drawSquare(height, ch);
+                break;
+            case 4:
+                drawRectangle(height, length, ch);
+                break;
+        }
+    }
 }
