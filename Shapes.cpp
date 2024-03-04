@@ -32,6 +32,11 @@ int main() {
             cin >> size >> ch;
             drawHorizontalLine(size, ch);
             break;
+        case 2:
+            cout << "\nInput the height and character of the line:";
+            cin >> size >> ch;
+            drawVerticalLine(size, ch);
+            break;
     }
 
     return 0;
@@ -48,7 +53,11 @@ void drawHorizontalLine(int length, char ch) {
 }
 
 void drawVerticalLine(int height, char ch) {
-    cout << "\nI am drawVerticalLine" << endl;
+    cout << "Horizontal line (" << height << "," << ch << ")" << endl;
+
+    for (int i = 0; i < height; i++) {
+        cout << ch << endl;
+    }
 }
 
 void drawSquare(int size, char ch) {
