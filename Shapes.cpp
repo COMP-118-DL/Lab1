@@ -15,6 +15,7 @@ int main() {
 
     int userChoice;
     int size;
+    int height, length;
     char ch;
 
     cout << "1) Draw a horizontal line" << endl;
@@ -38,10 +39,16 @@ int main() {
             drawVerticalLine(size, ch);
             break;
         case 3:
-            cout << "\nInput the size and character of the square:";
-            cin >> size >> ch;
-            drawSquare(size, ch);
+            cout << "\nInput the height and character of the square:";
+            cin >> height >> ch;
+            drawSquare(height, ch);
             break;
+        case 4:
+            cout << "\nInput the height, length and character of the rectangle:";
+            cin >> height >> length >> ch;
+            drawRectangle(height, length, ch);
+            break;
+
     }
 
     return 0;
@@ -87,5 +94,23 @@ void drawSquare(int size, char ch) {
 }
 
 void drawRectangle(int height, int length, char ch) {
-    cout << "\nI am drawRectangle" << endl;
+    cout << "Rectangle (" << height << "," << length << "," << ch << ")" << endl;
+
+    for (int i = 0; i < length; i++) {
+        cout << ch;
+    }
+    cout << endl;
+
+    for (int i = 0; i < height - 2; i++) {
+        cout << ch;
+        for (int j = 0; j < length - 2; j++) {
+            cout << " ";
+        }
+        cout << ch << endl;
+    }
+
+    for (int i = 0; i < length; i++) {
+        cout << ch;
+    }
+    cout << endl;
 }
